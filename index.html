@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="MTF Confluence Signal System — a personal-use forex trading signal generator. Single-user, self-hosted, no commercial offering.">
+  <title>MTF Confluence Signal System</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0e1116;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #2ea043;
+      --code-bg: #1f242c;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8fa; --panel: #ffffff; --border: #d0d7de;
+        --text: #1f2328; --muted: #57606a; --accent: #1a7f37;
+        --code-bg: #f0f3f6;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      padding: 2rem 1.5rem;
+    }
+    main {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    header { margin-bottom: 2rem; }
+    h1 {
+      margin: 0 0 0.4rem;
+      font-size: 1.65rem;
+      letter-spacing: -0.01em;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--code-bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.6rem;
+    }
+    section { margin: 1.75rem 0; }
+    h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    p { margin: 0 0 0.8rem; }
+    ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.3rem;
+    }
+    li { margin-bottom: 0.4rem; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    a:hover { border-bottom-color: var(--accent); }
+    code {
+      background: var(--code-bg);
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-size: 0.88em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.5rem 1.25rem;
+      margin-top: 0.5rem;
+    }
+    .grid dt {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .grid dd {
+      margin: 0;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>MTF Confluence Signal System</h1>
+      <p class="subtitle">A personal-use, self-hosted forex trading signal generator.</p>
+      <span class="badge">Personal use · single user · non-commercial</span>
+    </header>
+
+    <section>
+      <h2>What this is</h2>
+      <p>
+        MTF Confluence Signal System is a Python application I run on my own home server (Synology NAS). It connects to <strong>my own IC Markets demo account</strong> via the cTrader Open API to fetch historical and live price data for forex pairs, evaluates a multi-timeframe technical analysis rule, and sends Telegram notifications to <strong>me only</strong> when a setup is identified.
+      </p>
+      <p>
+        It is not a product, not a service, not a website that anyone else interacts with. There is no signup, no user-facing UI, no other users. It exists solely to deliver trading signals from my own account state to my own phone.
+      </p>
+    </section>
+
+    <section>
+      <h2>What it is not</h2>
+      <ul>
+        <li>It is not a SaaS or commercial offering.</li>
+        <li>It does not place orders or modify account state.</li>
+        <li>It does not store, share, or transmit data belonging to anyone other than me.</li>
+        <li>It does not provide a public API or interface.</li>
+        <li>It does not redistribute market data.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Scope of access requested</h2>
+      <p>
+        Within the cTrader Open API, the application requests:
+      </p>
+      <ul>
+        <li><strong>Historical and live trendbar data</strong> for the forex symbols I trade (initially EURUSD).</li>
+        <li><strong>Read-only access to my own account state</strong> (account number, balance, equity).</li>
+      </ul>
+      <p>
+        No order placement, no modification of trades, no withdrawal capability. Trade execution from any signals generated is performed manually by me.
+      </p>
+    </section>
+
+    <section>
+      <h2>Operator</h2>
+      <dl class="grid">
+        <dt>Name</dt><dd>Jon Shipley</dd>
+        <dt>Contact</dt><dd><a href="mailto:js@ovix.co.uk">js@ovix.co.uk</a></dd>
+        <dt>Domain</dt><dd>ovix.co.uk</dd>
+        <dt>Use case</dt><dd>Personal trading; single user (operator only)</dd>
+      </dl>
+    </section>
+
+    <footer>
+      Static page · No tracking, analytics, or third-party scripts · Last updated 2026-04-25
+    </footer>
+  </main>
+</body>
+</html>
